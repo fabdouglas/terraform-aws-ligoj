@@ -17,7 +17,7 @@ Service| Name | Access
 VPC    | [${vpc0}](/vpc/home?region=${region}#vpcs:filter=${vpc0}) |
 ELB    | [${elb0_name}](/ec2/v2/home?region=${region}#LoadBalancers:search=${elb0_dns}) | [http](http://${elb0_dns})
 ALB    | [${alb0_name}](/ec2/v2/home?region=${region}#LoadBalancers:search=${alb0_dns}) | [http](http://${alb0_dns})
-EC2    | [EC2 Name + id](#dashboards:name=My_first_dashboard) | [dns_ipv4](http://amazon.com)
+EC2    | [${ec20}](/ec2/v2/home?region=${region}#Instances:search=${ec20})|[http](http://${ec20_ip})
 EC2/AS | [${asg0_name}](/ec2/autoscaling/home?region=${region}#AutoScalingGroups:id=${asg0};view=details) |
 EC2/AS | [${asg1_name}](/ec2/autoscaling/home?region=${region}#AutoScalingGroups:id=${asg1};view=details) |
 EC2/AS | [${asg2_name}](/ec2/autoscaling/home?region=${region}#AutoScalingGroups:id=${asg2};view=details) |

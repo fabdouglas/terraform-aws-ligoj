@@ -53,6 +53,8 @@ data "template_file" "widgets" {
     asg0_name = "instance-B-Spot"
     asg1_name = "instance-C-ELB"
     asg2_name = "instance-D-ALB-Spot"
+    ec20      = "${module.instance-A.instances}"
+    ec20_ip   = "${module.instance-A.public_ip}"
     elb0      = "${module.instance-C-ELB.elb_name}"
     alb0      = "${module.instance-D-ALB-Spot.load_balancer_arn_suffix}"
     alb0_tg   = "${module.instance-D-ALB-Spot.target_group_arn_suffix}"
