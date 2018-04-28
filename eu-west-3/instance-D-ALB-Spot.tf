@@ -9,7 +9,7 @@ module "instance-D-ALB-Spot" {
   key_name            = "${aws_key_pair.auth.id}"
   tags                = "${var.tags}"
   subnets             = ["${module.vpc.public_subnets}"]
-  max_size            = 5
+  max_size            = 2
   spot_price          = "0.132"
   vpc_id              = "${module.vpc.vpc_id}"
 

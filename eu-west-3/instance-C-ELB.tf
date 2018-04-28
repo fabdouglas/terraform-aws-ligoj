@@ -9,7 +9,7 @@ module "instance-C-ELB" {
   key_name            = "${aws_key_pair.auth.id}"
   tags                = "${var.tags}"
   subnets             = ["${module.vpc.public_subnets}"]
-  max_size            = 5
+  max_size            = 2
   vpc_id              = "${module.vpc.vpc_id}"
   accept_alb          = false
 }

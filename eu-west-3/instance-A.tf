@@ -9,21 +9,15 @@ module "instance-A" {
   tags            = "${var.tags}"
   subnets         = ["${module.vpc.public_subnets}"]
   vpc_id          = "${module.vpc.vpc_id}"
+}
 
-  ebs_block_device = [
-    {
-      device_name           = "/dev/xvdz"
-      volume_type           = "gp2"
-      volume_size           = "50"
-      delete_on_termination = true
-    },
-  ]
+resource "aws_volume_attachment" "instance-A-storage-1" {
+  device_name = "/dev/sdh"
+  volume_id   = "${aws_ebs_volume.instance-A-storage-1.id}"
+  instance_id = "${module.instance-A.instance}"
+}
 
-  root_block_device = [
-    {
-      volume_size           = "50"
-      volume_type           = "gp2"
-      delete_on_termination = true
-    },
-  ]
+resource "aws_ebs_volume" "instance-A-storage-1" {
+  availability_zone = "${element(local.azs, 0)}"
+  size              = 10
 }
