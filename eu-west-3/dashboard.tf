@@ -15,13 +15,12 @@ data "template_file" "md" {
     period         = "${local.period}"
     metrics_period = "${local.metrics_period}"
     region         = "${var.region}"
+    vpc0           = "${module.vpc.vpc_id}"
 
-    asg0      = "${module.instance-B-Spot.autoscaling_group_name}"
-    asg1      = "${module.instance-C-ELB.autoscaling_group_name}"
-    asg2      = "${module.instance-D-ALB-Spot.autoscaling_group_name}"
-    asg0_name = "instance-B-Spot"
-    asg1_name = "instance-C-ELB"
-    asg2_name = "instance-D-ALB-Spot"
+    asg0      = "${module.instance-C-ELB.autoscaling_group_name}"
+    asg1      = "${module.instance-D-ALB-Spot.autoscaling_group_name}"
+    asg0_name = "instance-C-ELB"
+    asg1_name = "instance-D-ALB-Spot"
     ec20      = "${module.instance-A.instance}"
     ec20_ip   = "${module.instance-A.public_ip}"
     elb0      = "${module.instance-C-ELB.elb_name}"
@@ -31,7 +30,6 @@ data "template_file" "md" {
     alb0_name = "instance-D-ALB-Spot"
     elb0_dns  = "${module.instance-C-ELB.elb_dns}"
     alb0_dns  = "${module.instance-D-ALB-Spot.elb_dns}"
-    vpc0      = "${module.vpc.vpc_id}"
   }
 }
 
@@ -48,13 +46,12 @@ data "template_file" "widgets" {
     metrics_period = "${local.metrics_period}"
     region         = "${var.region}"
     md             = "${replace(data.template_file.md.rendered, "\n", "\\n")}"
+    vpc0           = "${module.vpc.vpc_id}"
 
-    asg0      = "${module.instance-B-Spot.autoscaling_group_name}"
-    asg1      = "${module.instance-C-ELB.autoscaling_group_name}"
-    asg2      = "${module.instance-D-ALB-Spot.autoscaling_group_name}"
-    asg0_name = "instance-B-Spot"
-    asg1_name = "instance-C-ELB"
-    asg2_name = "instance-D-ALB-Spot"
+    asg0      = "${module.instance-C-ELB.autoscaling_group_name}"
+    asg1      = "${module.instance-D-ALB-Spot.autoscaling_group_name}"
+    asg0_name = "instance-C-ELB"
+    asg1_name = "instance-D-ALB-Spot"
     ec20      = "${module.instance-A.instance}"
     ec20_ip   = "${module.instance-A.public_ip}"
     elb0      = "${module.instance-C-ELB.elb_name}"
@@ -64,7 +61,6 @@ data "template_file" "widgets" {
     alb0_name = "instance-D-ALB-Spot"
     elb0_dns  = "${module.instance-C-ELB.elb_dns}"
     alb0_dns  = "${module.instance-D-ALB-Spot.elb_dns}"
-    vpc0      = "${module.vpc.vpc_id}"
   }
 }
 

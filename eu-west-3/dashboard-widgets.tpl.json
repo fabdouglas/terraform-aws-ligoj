@@ -31,13 +31,10 @@
                 "metrics": [
                     [ "AWS/AutoScaling", "GroupInServiceInstances", "AutoScalingGroupName", "${asg0}", { "color": "#2ca02c", "yAxis": "left", "label": "${asg0_name}", "period": ${metrics_period} } ],
                     [                                                                "...", "${asg1}", { "color": "#2ca02c", "yAxis": "left", "label": "${asg1_name}", "period": ${metrics_period} } ],
-                    [                                                                "...", "${asg2}", { "color": "#2ca02c", "yAxis": "left", "label": "${asg2_name}", "period": ${metrics_period} } ],
                     [                                    ".", "GroupPendingInstances", ".", "${asg0}", { "color": "#ff7f0e", "yAxis": "right", "label": "Pending ${asg0_name}", "period": ${metrics_period}  } ],
                     [                                                                "...", "${asg1}", { "color": "#ff7f0e", "yAxis": "right", "label": "Pending ${asg1_name}", "period": ${metrics_period}  } ],
-                    [                                                                "...", "${asg2}", { "color": "#ff7f0e", "yAxis": "right", "label": "Pending ${asg2_name}", "period": ${metrics_period}  } ],
                     [                              ".", "GroupTerminatingInstances", ".",   "${asg0}", { "color": "#d62728", "yAxis": "right", "label": "Term. ${asg0_name}", "period": ${metrics_period}  } ],
-                    [                                                                "...", "${asg1}", { "color": "#d62728", "yAxis": "right", "label": "Term. ${asg1_name}", "period": ${metrics_period}  } ],
-                    [                                                                "...", "${asg2}", { "color": "#d62728", "yAxis": "right", "label": "Term. ${asg2_name}", "period": ${metrics_period}  } ]
+                    [                                                                "...", "${asg1}", { "color": "#d62728", "yAxis": "right", "label": "Term. ${asg1_name}", "period": ${metrics_period}  } ]
                 ],
                 "region": "${region}",
                 "title": "Scaling",
